@@ -1,0 +1,12 @@
+---
+description: Open Cursor plans in the IDE running the agent
+alwaysApply: true
+---
+
+# Open Plans in IDE
+
+After saving a new or updated implementation plan through Cursor's native plan workflow, use the absolute path to the existing Markdown plan file. Preserve Cursor's plan metadata and approval workflow.
+
+Use `CURSOR_AGENT_HOST_IDE` as the sole source for the app name. If its value is exactly `PhpStorm` or `IntelliJ IDEA` and the file path is known, run `open -a "$CURSOR_AGENT_HOST_IDE" "<absolute-plan-path>"` without waiting for the editor to close.
+
+Otherwise, skip opening the file. Keep IDE detection and opening out of the user-facing response.

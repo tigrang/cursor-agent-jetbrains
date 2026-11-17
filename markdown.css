@@ -1,0 +1,516 @@
+/*
+ * NOCTURNE — Markdown preview for PhpStorm / JetBrains IDEs
+ * A calm, editorial dark theme designed for black IDE backgrounds.
+ *
+ * Install: Settings > Languages & Frameworks > Markdown > Custom CSS > Load from
+ *
+ * No external fonts, scripts, remote resources, or editor modifications.
+ * Only the rendered Markdown preview is styled.
+ */
+
+:root {
+    color-scheme: dark;
+    --nm-canvas: #101114;
+    --nm-paper: #1a1c21;
+    --nm-paper-soft: #202329;
+    --nm-code: #14171c;
+    --nm-text: #d9dde5;
+    --nm-muted: #a1a9b6;
+    --nm-soft: #7e8897;
+    --nm-heading: #f4f5f8;
+    --nm-accent: #91b8ff;
+    --nm-accent-hover: #bad1ff;
+    --nm-border: #343942;
+    --nm-border-soft: #2b3038;
+    --nm-inline: #272d38;
+}
+
+html {
+    min-height: 100%;
+    background-color: var(--nm-canvas) !important;
+    color-scheme: dark;
+}
+
+/* Make the document visibly distinct from PhpStorm's black preview canvas.
+   JetBrains may provide its own body styles, so use explicit overrides. */
+html body {
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    max-width: 900px !important;
+    min-height: calc(100vh - 48px) !important;
+    margin: 24px auto !important;
+    padding: 44px 54px 58px !important;
+    border: 1px solid var(--nm-border) !important;
+    border-radius: 12px !important;
+    outline: 1px solid rgba(11, 13, 17, .65);
+    color: var(--nm-text) !important;
+    background-color: var(--nm-paper) !important;
+    background-image: none !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, .32),
+    0 1px 3px rgba(0, 0, 0, .20),
+    0 0 0 1px rgba(106, 117, 134, .16) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 1.68 !important;
+    letter-spacing: .002em;
+    overflow-wrap: break-word;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body, body *, body *::before, body *::after {
+    box-sizing: border-box;
+}
+
+body > :first-child {
+    margin-top: 0 !important;
+}
+
+body > :last-child {
+    margin-bottom: 0 !important;
+}
+
+body ::selection {
+    background: #405a88;
+    color: #ffffff;
+}
+
+/* Clear, quiet editorial hierarchy */
+body h1, body h2, body h3, body h4, body h5, body h6 {
+    color: var(--nm-heading) !important;
+    font-family: inherit;
+    font-weight: 650;
+    line-height: 1.28;
+    letter-spacing: -.022em;
+}
+
+body h1 {
+    position: relative;
+    margin: 0 0 23px;
+    padding: 0 0 20px;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -.043em;
+    border-bottom: 1px solid var(--nm-border);
+}
+
+body h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 44px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--nm-accent);
+}
+
+body h2 {
+    margin: 38px 0 15px;
+    padding: 0 0 10px;
+    font-size: 19px;
+    border-bottom: 1px solid var(--nm-border-soft);
+}
+
+body h3 {
+    margin: 26px 0 10px;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+body h4 {
+    margin: 20px 0 8px;
+    font-size: 14px;
+}
+
+body h5, body h6 {
+    margin: 18px 0 8px;
+    font-size: 13px;
+    color: var(--nm-muted) !important;
+}
+
+body h1 + p {
+    color: #bac2cf;
+    font-size: 15.5px;
+    line-height: 1.7;
+}
+
+/* Reading rhythm */
+body p, body ul, body ol, body blockquote, body pre,
+body table, body dl, body details, body figure {
+    margin-top: 0;
+    margin-bottom: 17px;
+}
+
+body p {
+    line-height: 1.68;
+}
+
+body strong, body b {
+    color: #eef0f5;
+    font-weight: 650;
+}
+
+body em {
+    color: #e0e3e9;
+}
+
+body small {
+    color: var(--nm-muted);
+}
+
+body a, body a:link, body a:visited {
+    color: var(--nm-accent) !important;
+    text-decoration: none;
+    text-underline-offset: 3px;
+}
+
+body a:hover {
+    color: var(--nm-accent-hover) !important;
+    text-decoration: underline;
+}
+
+body a:focus-visible {
+    outline: 2px solid var(--nm-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+body a:not([href]) {
+    color: inherit !important;
+}
+
+body hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid var(--nm-border);
+    height: 0;
+    background: none;
+}
+
+body mark {
+    color: #fbe6ac;
+    background: #644f23;
+    border-radius: 3px;
+    padding: 1px 3px;
+}
+
+body img, body svg {
+    max-width: 100%;
+}
+
+body img {
+    height: auto;
+    border-radius: 8px;
+}
+
+body figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body figcaption {
+    color: var(--nm-muted);
+    font-size: 13px;
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* Lists: a little more room, without oversized indentation */
+body ul, body ol {
+    padding-left: 1.65em;
+}
+
+body li {
+    padding-left: .12em;
+}
+
+body li + li {
+    margin-top: 5px;
+}
+
+body li > p {
+    margin: 4px 0 8px;
+}
+
+body li > ul, body li > ol {
+    margin: 7px 0 10px;
+}
+
+body ul li::marker {
+    color: #8694a8;
+}
+
+body ol li::marker {
+    color: #a3b9dc;
+    font-weight: 600;
+}
+
+body li.task-list-item, body .task-list-item {
+    list-style: none;
+}
+
+body .task-list-item-checkbox, body input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin: 0 7px 2px -19px;
+    vertical-align: middle;
+    accent-color: #719cde;
+}
+
+body input[type="checkbox"]:disabled {
+    opacity: .85;
+}
+
+/* Inline code and code fences */
+body code, body kbd, body pre, body samp {
+    font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+}
+
+body :not(pre) > code, body tt {
+    padding: .13em .4em;
+    border: 1px solid #38404e;
+    border-radius: 5px;
+    color: #d2e2ff;
+    background: var(--nm-inline);
+    font-size: .88em;
+    white-space: break-spaces;
+}
+
+body h1 code, body h2 code, body h3 code {
+    font-size: .86em;
+    font-weight: 600;
+}
+
+body pre, body .highlight pre, body .codehilite pre {
+    max-width: 100%;
+    margin: 18px 0 21px;
+    padding: 16px 19px;
+    overflow: auto;
+    border: 1px solid var(--nm-border);
+    border-radius: 9px;
+    color: #d7e0ed;
+    background: var(--nm-code) !important;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .02);
+    font-size: 12.8px;
+    line-height: 1.65;
+    tab-size: 2;
+    white-space: pre;
+}
+
+body pre code, body pre tt {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: inherit;
+    background: transparent !important;
+    font-size: inherit;
+    white-space: inherit;
+}
+
+body pre span {
+    background-color: transparent;
+}
+
+body pre::-webkit-scrollbar, body table::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+body pre::-webkit-scrollbar-thumb, body table::-webkit-scrollbar-thumb {
+    background: #474d56;
+    border: 2px solid var(--nm-code);
+    border-radius: 10px;
+}
+
+body kbd {
+    padding: 3px 6px;
+    border: 1px solid #454b55;
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    background: #292d35;
+    color: #e5e8ed;
+    font-size: .82em;
+}
+
+/* Quotes and notes */
+body blockquote {
+    margin: 22px 0;
+    padding: 13px 17px;
+    border-left: 3px solid #789cd4;
+    border-radius: 0 7px 7px 0;
+    color: #bdc8d9;
+    background: #222a36;
+}
+
+body blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+body blockquote p:first-child {
+    margin-top: 0;
+}
+
+body blockquote strong {
+    color: #ecf2ff;
+}
+
+/* Calm, compact tables */
+body table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 1px solid var(--nm-border);
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+body table th, body table td {
+    padding: 10px 14px;
+    border-right: 1px solid var(--nm-border-soft);
+    border-bottom: 1px solid var(--nm-border-soft);
+    text-align: left;
+    vertical-align: top;
+}
+
+body table th:last-child, body table td:last-child {
+    border-right: 0;
+}
+
+body table tr:last-child td {
+    border-bottom: 0;
+}
+
+body table thead th {
+    color: #eef1f8;
+    background: #272c35;
+    font-weight: 650;
+}
+
+body table tbody tr {
+    background: var(--nm-paper);
+}
+
+body table tbody tr:nth-child(even) {
+    background: #202329;
+}
+
+body table tbody tr:hover {
+    background: #292e38;
+}
+
+body table p {
+    margin: 0;
+}
+
+/* Optional Markdown extensions */
+body details {
+    padding: 11px 15px;
+    border: 1px solid var(--nm-border);
+    border-radius: 8px;
+    background: var(--nm-paper-soft);
+}
+
+body summary {
+    color: #e9ecf3;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+body details > :last-child {
+    margin-bottom: 0;
+}
+
+body .footnotes {
+    border-top: 1px solid var(--nm-border);
+    color: var(--nm-muted);
+    font-size: 12.5px;
+}
+
+body .mermaid, body .plantuml {
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 16px;
+    overflow-x: auto;
+    border: 1px solid var(--nm-border-soft);
+    border-radius: 8px;
+    background: #1e2229;
+}
+
+body .markdown-alert {
+    padding: 12px 16px;
+    border-left: 3px solid #799bd1;
+    border-radius: 0 7px 7px 0;
+    background: #222a36;
+}
+
+body .markdown-alert-note {
+    border-left-color: #799bd1;
+}
+
+body .markdown-alert-tip {
+    border-left-color: #7fb2a1;
+}
+
+body .markdown-alert-warning {
+    border-left-color: #d2aa6b;
+}
+
+body .markdown-alert-caution {
+    border-left-color: #d68383;
+}
+
+/* The preview often lives in a narrow split pane. */
+@media (max-width: 760px) {
+    /* Keep the bordered page even in PhpStorm's split Markdown preview. */
+    html body {
+        width: calc(100% - 24px) !important;
+        max-width: none !important;
+        min-height: calc(100vh - 24px) !important;
+        margin: 12px auto !important;
+        padding: 25px 24px 45px !important;
+        border: 1px solid var(--nm-border) !important;
+        border-radius: 10px !important;
+        background-color: var(--nm-paper) !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .30),
+        0 0 0 1px rgba(106, 117, 134, .16) !important;
+        font-size: 14.5px !important;
+    }
+
+    body h1 {
+        font-size: 25px;
+    }
+
+    body h2 {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+
+    body pre {
+        padding: 13px 14px;
+        font-size: 12.3px;
+    }
+}
+
+@media (max-width: 420px) {
+    html body {
+        width: calc(100% - 16px) !important;
+        min-height: calc(100vh - 16px) !important;
+        margin: 8px auto !important;
+        padding: 21px 17px 36px !important;
+    }
+
+    body h1 {
+        font-size: 23px;
+    }
+
+    body ul, body ol {
+        padding-left: 1.45em;
+    }
+}

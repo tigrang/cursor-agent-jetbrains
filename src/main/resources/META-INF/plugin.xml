@@ -1,0 +1,22 @@
+<idea-plugin>
+    <id>io.github.tigrang.cursoragent.jetbrains</id>
+    <name>Cursor Agent Terminal</name>
+    <vendor url="https://github.com/tigrang">tigrang</vendor>
+    <description><![CDATA[
+      Run the Cursor CLI in a dedicated JetBrains tool window. Browse and search local
+      conversation history, then resume a session in an embedded terminal. Not affiliated with Cursor.
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 id="io.github.tigrang.cursoragent.jetbrains.settings"
+                                 displayName="Cursor Agent"
+                                 instance="io.github.tigrang.cursoragent.jetbrains.CursorAgentSettingsConfigurable"/>
+        <toolWindow id="Cursor Agent"
+                    anchor="right"
+                    canCloseContents="true"
+                    icon="/icons/cursorAgent.svg"
+                    factoryClass="io.github.tigrang.cursoragent.jetbrains.CursorAgentToolWindowFactory"/>
+    </extensions>
+</idea-plugin>
